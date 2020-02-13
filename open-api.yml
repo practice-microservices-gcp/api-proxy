@@ -1,0 +1,53 @@
+swagger: '2.0'
+info:
+    title: Workshop people api
+    description: This is the description of the people api to practices the microservices configuration in GCP
+    version: 1.0.0
+host: $hostESP
+schemes:
+    - https
+produces:
+    - application/json
+paths:
+    /people:
+        get:
+            summary: Get paginated list of people
+            operationId: people
+            x-google-backend:
+                address: https://europe-west1-invertible-env-265310.cloudfunctions.net/read_people
+            responses:
+                200:
+                    description: Success response from services
+                    schema:
+                        type: object
+                        properties:
+                            metadata:
+                                type: object
+                                properties:
+                                    limit:
+                                        type: number
+                                        description: Size of the page
+                                    offset:
+                                        type: number
+                                        description: Index of the page
+                                    total:
+                                        type: number
+                                        description: Total number of items in the data base
+                            data:
+                                type: array
+                                items:
+                                    type: object
+                                    properties:
+                                        name:
+                                            type: string
+                                            description: Name of the person
+                                        surname:
+                                            type: string
+                                            description: Surname of the person
+                                        email:
+                                            type: string
+                                            description: email of the person
+                500:
+                    description: Service controled error
+                    schema:
+                        type: string
