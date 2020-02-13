@@ -4,6 +4,8 @@ info:
     description: This is the description of the people api to practices the microservices configuration in GCP
     version: 1.0.0
 host: $hostESP
+security:
+    - api_key: []
 schemes:
     - https
 produces:
@@ -51,3 +53,8 @@ paths:
                     description: Service controled error
                     schema:
                         type: string
+securityDefinitions:
+    api_key:
+        type: "apiKey"
+        name: "key"
+        in: "query"
