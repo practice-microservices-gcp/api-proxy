@@ -6,6 +6,7 @@ info:
 host: $hostESP
 security:
     - api_key: []
+    - firebase: []
 schemes:
     - https
 produces:
@@ -58,3 +59,10 @@ securityDefinitions:
         type: "apiKey"
         name: "key"
         in: "query"
+    firebase:
+        authorizationUrl: ""
+        flow: "implicit"
+        type: "oauth2"
+        x-google-issuer: "https://securetoken.google.com/invertible-env-265310"
+        x-google-jwks_uri: "https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system.gserviceaccount.com"
+        x-google-audiences: "invertible-env-265310"
