@@ -3,6 +3,7 @@
     "project": "GCLOUD_PROJECT_ID",
     "serviceAccount": "GCLOUD_SERVICE_ACCOUNT",
     "functions": [
-        "read_people"
+        "read_people",
+        "create_person"
     ]
 }

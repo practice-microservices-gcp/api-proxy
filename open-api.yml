@@ -54,6 +54,29 @@ paths:
                     description: Service controled error
                     schema:
                         type: string
+        post:
+            summary: Create a nuew people
+            operationId: create_people
+            x-google-backend:
+                address: https://europe-west1-invertible-env-265310.cloudfunctions.net/create_person
+            responses:
+                201:
+                    description: Person created successfully
+                    schema:
+                        type: object
+                        properties:
+                            message:
+                                type: string
+                                description: Success message
+                400:
+                    description: Wrong body in the request
+                    schema:
+                        type: string
+                500:
+                    description: Service controled error
+                    schema:
+                        type: string
+                                
 securityDefinitions:
     api_key:
         type: "apiKey"
