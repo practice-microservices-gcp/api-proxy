@@ -4,6 +4,7 @@
     "serviceAccount": "GCLOUD_SERVICE_ACCOUNT",
     "functions": [
         "read_people",
-        "create_person"
+        "create_person",
+        "read_one_person"
     ]
 }

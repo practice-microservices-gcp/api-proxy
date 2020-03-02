@@ -76,6 +76,42 @@ paths:
                     description: Service controled error
                     schema:
                         type: string
+    /people/{code}:
+        get:
+            summary: Read information about one person
+            parameters:
+                - in: path
+                  name: code
+                  type: integer
+                  required: true
+            operationId: read_one_person
+            x-google-backend:
+                address: https://europe-west1-invertible-env-265310.cloudfunctions.net/read_one_person
+            responses:
+                200:
+                    description: Information about one person
+                    schema:
+                        type: object
+                        properties:
+                            name:
+                                type: string
+                            surname:
+                                type: string
+                            email:
+                                type: string
+                400:
+                    description: Wrong id
+                    schema:
+                        type: string
+                404:
+                    description: Person not found
+                    schema:
+                        type: string
+                500:
+                    description: Service controled error
+                    schema:
+                        type: string
+
                                 
 securityDefinitions:
     api_key:
